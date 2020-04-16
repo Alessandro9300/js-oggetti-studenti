@@ -46,15 +46,37 @@ $(document).ready(function(){
     }
   ]
 
+  $("button").click(function(){
 
+    var valoreInputNome = $("#nome").val();
+    var valoreInputCognome = $("#cognome").val();
+
+    if (valoreInputNome == "" || valoreInputCognome == "" ) {
+
+      alert("Non lasciare campi vuoti")
+
+    } else {
+      arrayStudenti.push({
+        nome: valoreInputNome,
+        cognome: valoreInputCognome
+      })
+
+      $("#array-studenti").append("<li>" + arrayStudenti[i].nome + " " + arrayStudenti[i].cognome + "</li>")
+      $("#nome").val("");
+      $("#cognome").val("");
+      i++;
+
+      console.log(arrayStudenti.length);
+    }
+
+
+  })
 
   arrayStudenti.push({
     nome: prompt("MettiNomeStudente"),
-    cognome: cognomePrompt = prompt("MettiNomeStudente"),
-    eta: etaPrompt = prompt("MettiNomeStudente")
+    cognome: cognomePrompt = prompt("MettiCognomeStudente"),
+    eta: etaPrompt = prompt("MettiEtaStudente")
   })
-
-
 
 
   for (var i = 0; i < arrayStudenti.length; i++) {
@@ -62,9 +84,6 @@ $(document).ready(function(){
     $("#array-studenti").append("<li>" + arrayStudenti[i].nome + " " + arrayStudenti[i].cognome + "</li>")
 
   }
-
-
-
 
 
 
